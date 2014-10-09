@@ -1,0 +1,15 @@
+<testsuites>
+	<testsuite name="AllTests" tests="11">
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberZero"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberOne"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberTwo"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberThree"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberFour"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberFive"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberSix"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberSeven"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberEight"/>
+		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberNine"/>
+		<testcase classname="AllTests" name="getDigitBiggerThanTenThrowsInvalidArgException"/>
+	</testsuite>
+</testsuites>
