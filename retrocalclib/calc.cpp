@@ -26,3 +26,4 @@ int calc(std::istream &in) {
 
 	return calc(val1, val2, op);
 }
+

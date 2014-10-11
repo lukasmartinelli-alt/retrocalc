@@ -3,6 +3,8 @@
 #include <stdexcept>
 #include <iostream>
 #include <algorithm>
+#include <string>
+#include <ostream>
 
 const std::vector<std::vector<std::string>> DIGITS = {{" - ", "   ", " - ", " - ", "   ", " - ", " - ", " - ", " - ", " - "},
 													  {"| |", "  |", "  |", "  |", "| |", "|  ", "|  ", "  |", "| |", "| |"},
@@ -47,4 +49,32 @@ std::vector<std::string> scaleVertically(std::vector<std::string> digit, unsigne
 
 std::vector<std::string> scaleDigit(std::vector<std::string> digit, unsigned int factor) {
 	return scaleVertically(scaleHorizontally(digit, factor), factor);
+}
+
+void printDigits(std::ostream &out, std::vector<std::vector<std::string>> printableDigits, unsigned int lineCount, std::string margin) {
+	std::vector<std::string> lines(lineCount);
+
+	for(const auto digit : printableDigits) {
+		for (auto it = digit.begin(); it != digit.end(); ++it) {
+			auto index = std::distance(digit.begin(), it);
+			lines.at(index).append(margin);
+			lines.at(index).append(*it);
+		}
+	}
+
+	for(auto line : lines) {
+		out << line << "\n";
+	}
+}
+
+void printNumber(std::ostream &out, unsigned int number) {
+	std::vector<std::vector<std::string>> printableDigits {};
+
+	do {
+		const unsigned int digit { number % 10 };
+		printableDigits.insert(printableDigits.begin(), getDigit(digit));
+		number /= 10;
+	} while (number > 0);
+
+	printDigits(out, printableDigits, 5, "");
 }

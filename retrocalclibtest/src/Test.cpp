@@ -6,6 +6,7 @@
 #include "calc.h"
 #include <vector>
 #include <stdexcept>
+#include <sstream>
 
 
 void calcAddsNumbers() {
@@ -232,6 +233,70 @@ void scaleDigitVertically() {
 	ASSERT_EQUAL(" - ", scaledDigit.at(6));
 }
 
+void printDigitsRendersMultipleDigits() {
+	//Arrange
+	std::vector<std::string> digitZero = {" - ",
+									  "| |",
+									  "   ",
+									  "| |",
+									  " - "};
+	std::vector<std::string> digitNine = {" - ",
+									  "| |",
+									  " - ",
+									  "  |",
+									  "   "};
+
+	std::vector<std::vector<std::string>> digits {digitZero, digitNine};
+	std::ostringstream out {};
+
+	//Act
+	printDigits(out, digits, 5, "");
+
+	//Assert
+	std::string expected = {
+		" -  - \n"
+		"| || |\n"
+		"    - \n"
+		"| |  |\n"
+		" -    \n"
+	};
+	ASSERT_EQUAL(expected, out.str());
+}
+
+void printNumberRendersMultipleDigits() {
+	//Arrange
+	std::ostringstream out {};
+	unsigned int number { 319 };
+	//Act
+	printNumber(out, number);
+	//Assert
+	std::string expected = {
+		" -     - \n"
+		"  |  || |\n"
+		" -     - \n"
+		"  |  |  |\n"
+		" -       \n"
+	};
+	ASSERT_EQUAL(expected, out.str());
+}
+
+void printNumberCanPrintZero() {
+	//Arrange
+	std::ostringstream out {};
+	unsigned int number { 0 };
+	//Act
+	printNumber(out, number);
+	//Assert
+	std::string expected = {
+		" - \n"
+		"| |\n"
+		"   \n"
+		"| |\n"
+		" - \n"
+	};
+	ASSERT_EQUAL(expected, out.str());
+}
+
 void runAllTests(int argc, char const *argv[]){
 	cute::suite s;
 
@@ -248,6 +313,9 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(getDigitBiggerThanTenThrowsInvalidArgException));
 	s.push_back(CUTE(scaleDigitHorizontally));
 	s.push_back(CUTE(scaleDigitVertically));
+	s.push_back(CUTE(printDigitsRendersMultipleDigits));
+	s.push_back(CUTE(printNumberRendersMultipleDigits));
+
 	s.push_back(CUTE(calcAddsNumbers));
 	s.push_back(CUTE(calcSubtractsSecondFromFirst));
 	s.push_back(CUTE(calcDividesFirstWithSecond));
@@ -256,6 +324,7 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(calcThrowsOverflowExceptionForDivisionByZero));
 	s.push_back(CUTE(calcReadsReturnsResultForValidInput));
 	s.push_back(CUTE(calcReadsThrowsExceptionForInvalidInput));
+	s.push_back(CUTE(printNumberCanPrintZero));
 
 	cute::xml_file_opener xmlfile(argc,argv);
 	cute::xml_listener<cute::ide_listener<> >  lis(xmlfile.out);
