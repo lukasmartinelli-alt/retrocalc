@@ -3,7 +3,21 @@
 
 #include <iosfwd>
 
-int calc(int val1, int val2, char op);
+/**
+ * Performs a simple arithmetic operation on two values
+ * @param value1 First value for the operation
+ * @param value2 Second value for the operation
+ * @param operatorSymbol The operation to apply to the values (+, -, /, *)
+ * @return Result of operation
+ */
+int calc(int value1, int value2, char operatorSymbol);
+/**
+ * Read an arithmetic expression in postfix notation from a istream and calculates
+ * the result
+ * The expression has to be in the format "{value1} {value2} {operatorSymbol}"
+ * @param in Stream to read the expression from
+ * @return Result of operation
+ */
 int calc(std::istream &in);
 
 #endif

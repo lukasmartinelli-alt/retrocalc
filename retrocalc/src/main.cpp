@@ -1,6 +1,6 @@
 #include <iostream>
 #include "calc.h"
-#include "digit.h"
+#include "sevensegment.h"
 
 int main() {
 	std::cout << "What can I calculate for you today, Sir?\n";

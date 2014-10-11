@@ -6,25 +6,19 @@
 #include <string>
 #include <ostream>
 
-const std::vector<std::vector<std::string>> DIGITS = {{" - ", "   ", " - ", " - ", "   ", " - ", " - ", " - ", " - ", " - "},
-													  {"| |", "  |", "  |", "  |", "| |", "|  ", "|  ", "  |", "| |", "| |"},
- 													  {"   ", "   ", " - ", " - ", " - ", " - ", " - ", "   ", " - ", " - "},
-   													  {"| |", "  |", "|  ", "  |", "  |", "  |", "| |", "  |", "| |", "  |"},
- 													  {" - ", "   ", " - ", " - ", "   ", " - ", " - ", "   ", " ̣̣- ", "   "}};
-
-std::vector<std::string> getDigit(unsigned int number) {
+Digit getDigit(unsigned int number) {
 	if(number > 9) throw std::invalid_argument("Only digits from 0 to 9 are supported");
 
-	std::vector<std::string> digit {};
+	Digit digit {};
 
-	for(auto const v: DIGITS) {
-		digit.push_back(v.at(number));
+	for(auto const line: DIGITS) {
+		digit.push_back(line.at(number));
 	}
 
 	return digit;
 }
 
-std::vector<std::string> scaleHorizontally(std::vector<std::string> digit, unsigned int factor) {
+Digit scaleHorizontally(Digit digit, unsigned int factor) {
 	for(auto &line: digit) {
 		const unsigned int middle = line.size() / 2;
 		const char scalingCharacter = line.at(middle);
@@ -33,11 +27,11 @@ std::vector<std::string> scaleHorizontally(std::vector<std::string> digit, unsig
 	return digit;
 }
 
-std::vector<std::string> scaleVertically(std::vector<std::string> digit, unsigned int factor) {
-	std::vector<std::string> scaledDigit{};
+Digit scaleVertically(Digit digit, unsigned int factor) {
+	Digit scaledDigit{};
 
 	for(auto it=digit.begin(); it != digit.end(); ++it) {
-		auto index = std::distance(digit.begin(), it);
+		const auto index = std::distance(digit.begin(), it);
 
 		scaledDigit.push_back(*it);
 		if(index % 2 == 1) {
@@ -47,12 +41,12 @@ std::vector<std::string> scaleVertically(std::vector<std::string> digit, unsigne
 	return scaledDigit;
 }
 
-std::vector<std::string> scaleDigit(std::vector<std::string> digit, unsigned int factor) {
+Digit scaleDigit(Digit digit, unsigned int factor) {
 	return scaleVertically(scaleHorizontally(digit, factor), factor);
 }
 
-void printDigits(std::ostream &out, std::vector<std::vector<std::string>> printableDigits, unsigned int lineCount, std::string margin) {
-	std::vector<std::string> lines(lineCount);
+void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount, std::string margin) {
+	Digit lines(lineCount);
 
 	for(const auto digit : printableDigits) {
 		for (auto it = digit.begin(); it != digit.end(); ++it) {
@@ -67,14 +61,20 @@ void printDigits(std::ostream &out, std::vector<std::vector<std::string>> printa
 	}
 }
 
-void printNumber(std::ostream &out, unsigned int number) {
-	std::vector<std::vector<std::string>> printableDigits {};
+
+void printNumber(std::ostream &out, int number) {
+	std::vector<Digit> printableDigits {};
+	unsigned int positiveNumber { number < 0 ? -number : number };
 
 	do {
-		const unsigned int digit { number % 10 };
+		const unsigned int digit { positiveNumber % 10 };
 		printableDigits.insert(printableDigits.begin(), getDigit(digit));
-		number /= 10;
-	} while (number > 0);
+		positiveNumber /= 10;
+	} while (positiveNumber > 0);
+
+	if(number < 0) {
+		printableDigits.insert(printableDigits.begin(), MINUS_SYMBOL);
+	}
 
 	printDigits(out, printableDigits, 5, "");
 }

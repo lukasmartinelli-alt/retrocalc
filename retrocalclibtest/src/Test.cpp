@@ -297,6 +297,23 @@ void printNumberCanPrintZero() {
 	ASSERT_EQUAL(expected, out.str());
 }
 
+void printNumberCanPrintNegativeNumbers() {
+	//Arrange
+	std::ostringstream out {};
+	const int number { -1 };
+	//Act
+	printNumber(out, number);
+	//Assert
+	std::string expected = {
+		"      \n"
+		"     |\n"
+		" -    \n"
+		"     |\n"
+		"      \n"
+	};
+	ASSERT_EQUAL(expected, out.str());
+}
+
 void runAllTests(int argc, char const *argv[]){
 	cute::suite s;
 
@@ -325,6 +342,7 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(calcReadsReturnsResultForValidInput));
 	s.push_back(CUTE(calcReadsThrowsExceptionForInvalidInput));
 	s.push_back(CUTE(printNumberCanPrintZero));
+	s.push_back(CUTE(printNumberCanPrintNegativeNumbers));
 
 	cute::xml_file_opener xmlfile(argc,argv);
 	cute::xml_listener<cute::ide_listener<> >  lis(xmlfile.out);
