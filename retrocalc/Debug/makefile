@@ -38,22 +38,22 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: retrocalclibtest
+all: retrocalc
 
 dependents:
 	-cd /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug && $(MAKE) clean all
 
 # Tool invocations
-retrocalclibtest: $(OBJS) $(USER_OBJS) /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug/libretrocalclib.a
+retrocalc: $(OBJS) $(USER_OBJS) /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug/libretrocalclib.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug" -o "retrocalclibtest" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug" -o "retrocalc" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) retrocalclibtest
+	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) retrocalc
 	-@echo ' '
 
 .PHONY: all clean dependents

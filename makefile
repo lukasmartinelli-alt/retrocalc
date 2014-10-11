@@ -1,7 +1,8 @@
+PROG = retrocalc/Debug
 LIB = retrocalclib/Debug
 TEST = retrocalclibtest/Debug
 
-SUBPROJECTS = $(LIB) $(TEST)
+SUBPROJECTS = $(LIB) $(TEST) $(PROG)
 
 all: $(SUBPROJECTS)
 
@@ -11,9 +12,13 @@ $(LIB):
 $(TEST): $(LIB)
 	@$(MAKE) -C $@;
 
+$(PROG): $(LIB)
+	@$(MAKE) -C $@;
+
 clean:
 	@$(MAKE) clean -C $(LIB);
 	@$(MAKE) clean -C $(TEST);
+	@$(MAKE) clean -C $(PROG);
 
 test: $(SUBPROJECTS)
 	cd $(TEST) && ./retrocalclibtest;
