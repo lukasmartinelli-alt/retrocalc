@@ -1,5 +1,5 @@
 <testsuites>
-	<testsuite name="AllTests" tests="25">
+	<testsuite name="AllTests" tests="26">
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberZero"/>
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberOne"/>
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberTwo"/>
@@ -25,5 +25,6 @@
 		<testcase classname="AllTests" name="calcReadsThrowsExceptionForInvalidInput"/>
 		<testcase classname="AllTests" name="printNumberCanPrintZero"/>
 		<testcase classname="AllTests" name="printNumberCanPrintNegativeNumbers"/>
+		<testcase classname="AllTests" name="printErrorPrintsErrorSymbol"/>
 	</testsuite>
 </testsuites>

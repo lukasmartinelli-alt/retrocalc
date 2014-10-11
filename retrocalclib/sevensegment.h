@@ -70,5 +70,10 @@ void printNumber(std::ostream &out, int number);
  * @param margin The margin between different digits
  */
 void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount, std::string margin);
+/**
+ * Print an error symbol to output stream
+ * @param out The output stream to print the error to
+ */
+void printError(std::ostream &out);
 
 #endif

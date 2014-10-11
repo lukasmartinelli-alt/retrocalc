@@ -61,7 +61,6 @@ void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned
 	}
 }
 
-
 void printNumber(std::ostream &out, int number) {
 	std::vector<Digit> printableDigits {};
 	unsigned int positiveNumber { number < 0 ? -number : number };
@@ -77,4 +76,10 @@ void printNumber(std::ostream &out, int number) {
 	}
 
 	printDigits(out, printableDigits, 5, "");
+}
+
+void printError(std::ostream &out) {
+	for(const auto line : ERROR_SYMBOL) {
+		out << line << "\n";
+	}
 }
