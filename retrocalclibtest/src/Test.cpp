@@ -53,7 +53,7 @@ void calcThrowsOverflowExceptionForDivisionByZero() {
 
 void calcReadsReturnsResultForValidInput() {
 	//Arrange
-	std::istringstream in {"1 2 +"};
+	std::istringstream in {"1 + 2"};
 
 	//Act
 	int result = calc(in);

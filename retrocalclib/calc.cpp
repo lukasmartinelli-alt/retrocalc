@@ -21,8 +21,12 @@ int calc(std::istream &in) {
 	char operatorSymbol{};
 
 	in >> value1;
-	in >> value2;
 	in >> operatorSymbol;
+	in >> value2;
+
+	if(in.fail()) {
+		throw std::overflow_error("Input does not have correct format");
+	}
 
 	return calc(value1, value2, operatorSymbol);
 }

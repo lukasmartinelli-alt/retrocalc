@@ -12,9 +12,8 @@
  */
 int calc(int value1, int value2, char operatorSymbol);
 /**
- * Read an arithmetic expression in postfix notation from a istream and calculates
- * the result
- * The expression has to be in the format "{value1} {value2} {operatorSymbol}"
+ * Read an arithmetic expression from a istream and calculate the result.
+ * The expression has to be in the format "{value1} {operatorSymbol} {value2}"
  * @param in Stream to read the expression from
  * @return Result of operation
  */
