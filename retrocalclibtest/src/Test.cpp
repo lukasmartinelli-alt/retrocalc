@@ -250,7 +250,7 @@ void printDigitsRendersMultipleDigits() {
 	std::ostringstream out {};
 
 	//Act
-	printDigits(out, digits, 5, "");
+	printDigits(out, digits, 5);
 
 	//Assert
 	std::string expected = {
@@ -304,11 +304,11 @@ void printNumberCanPrintNegativeNumbers() {
 	printError(out);
 	//Assert
 	std::string expected = {
-		" - \n"
-		"|  \n"
-		" - \n"
-		"|  \n"
-		" - \n"
+		" -             \n"
+		"|              \n"
+		" -  -  -  -  - \n"
+		"|  |  |  | ||  \n"
+		" -        -    \n"
 	};
 	ASSERT_EQUAL(expected, out.str());
 }

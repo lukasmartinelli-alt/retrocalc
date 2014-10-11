@@ -41,7 +41,7 @@ endif
 all: retrocalc
 
 dependents:
-	-cd /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug && $(MAKE) all
+	-cd /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug && $(MAKE) clean all
 
 # Tool invocations
 retrocalc: $(OBJS) $(USER_OBJS) /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug/libretrocalclib.a

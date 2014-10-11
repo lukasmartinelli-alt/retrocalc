@@ -45,13 +45,12 @@ Digit scaleDigit(Digit digit, unsigned int factor) {
 	return scaleVertically(scaleHorizontally(digit, factor), factor);
 }
 
-void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount, std::string margin) {
+void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount) {
 	Digit lines(lineCount);
 
 	for(const auto digit : printableDigits) {
 		for (auto it = digit.begin(); it != digit.end(); ++it) {
 			auto index = std::distance(digit.begin(), it);
-			lines.at(index).append(margin);
 			lines.at(index).append(*it);
 		}
 	}
@@ -75,11 +74,14 @@ void printNumber(std::ostream &out, int number) {
 		printableDigits.insert(printableDigits.begin(), MINUS_SYMBOL);
 	}
 
-	printDigits(out, printableDigits, 5, "");
+	printDigits(out, printableDigits, 5);
 }
 
 void printError(std::ostream &out) {
-	for(const auto line : ERROR_SYMBOL) {
-		out << line << "\n";
+	for(auto const line: ERROR_DIGITS) {
+		for(auto const digitLine : line) {
+			out << digitLine;
+		}
+		out << "\n";
 	}
 }

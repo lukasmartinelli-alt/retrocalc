@@ -23,11 +23,11 @@ static const Digit MINUS_SYMBOL = {"   ",
 								   "   ",
                                    "   "};
 
-static const Digit ERROR_SYMBOL = {" - ",
- 	 	 	 	 	 	 	 	   "|  ",
-								   " - ",
-								   "|  ",
-                                   " - "};
+static const std::vector<std::vector<std::string>> ERROR_DIGITS = {{" - ","   ", "   ", "   ", "   "},
+																   {"|  ","   ", "   ", "   ", "   "},
+																   {" - "," - ", " - ", " - ", " - "},
+																   {"|  ","|  ", "|  ", "| |", "|  "},
+																   {" - ","   ", "   ", " - ", "   "}};
 
 
 /**
@@ -67,9 +67,8 @@ void printNumber(std::ostream &out, int number);
  * @param out The output stream to print the digits to
  * @param printableDigits The digits to print
  * @param lineCount How many line one digit contains
- * @param margin The margin between different digits
  */
-void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount, std::string margin);
+void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount);
 /**
  * Print an error symbol to output stream
  * @param out The output stream to print the error to
