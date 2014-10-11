@@ -5,15 +5,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../calc.cpp \
-../digit.cpp 
+../sevensegment.cpp 
 
 OBJS += \
 ./calc.o \
-./digit.o 
+./sevensegment.o 
 
 CPP_DEPS += \
 ./calc.d \
-./digit.d 
+./sevensegment.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

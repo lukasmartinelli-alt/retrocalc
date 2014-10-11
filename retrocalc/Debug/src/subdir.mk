@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/retrocalc.cpp 
+../src/main.cpp 
 
 OBJS += \
-./src/retrocalc.o 
+./src/main.o 
 
 CPP_DEPS += \
-./src/retrocalc.d 
+./src/main.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

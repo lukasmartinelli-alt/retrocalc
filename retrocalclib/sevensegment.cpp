@@ -1,4 +1,4 @@
-#include "digit.h"
+#include "sevensegment.h"
 #include <iterator>
 #include <stdexcept>
 #include <iostream>

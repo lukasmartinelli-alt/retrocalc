@@ -2,7 +2,7 @@
 #include "ide_listener.h"
 #include "xml_listener.h"
 #include "cute_runner.h"
-#include "digit.h"
+#include "sevensegment.h"
 #include "calc.h"
 #include <vector>
 #include <stdexcept>
