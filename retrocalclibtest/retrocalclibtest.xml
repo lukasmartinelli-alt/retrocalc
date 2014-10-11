@@ -1,5 +1,5 @@
 <testsuites>
-	<testsuite name="AllTests" tests="13">
+	<testsuite name="AllTests" tests="21">
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberZero"/>
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberOne"/>
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberTwo"/>
@@ -13,5 +13,13 @@
 		<testcase classname="AllTests" name="getDigitBiggerThanTenThrowsInvalidArgException"/>
 		<testcase classname="AllTests" name="scaleDigitHorizontally"/>
 		<testcase classname="AllTests" name="scaleDigitVertically"/>
+		<testcase classname="AllTests" name="calcAddsNumbers"/>
+		<testcase classname="AllTests" name="calcSubtractsSecondFromFirst"/>
+		<testcase classname="AllTests" name="calcDividesFirstWithSecond"/>
+		<testcase classname="AllTests" name="calcMultipliesNumbers"/>
+		<testcase classname="AllTests" name="calcThrowsInvalidArgExceptionForUnkownOperator"/>
+		<testcase classname="AllTests" name="calcThrowsOverflowExceptionForDivisionByZero"/>
+		<testcase classname="AllTests" name="calcReadsReturnsResultForValidInput"/>
+		<testcase classname="AllTests" name="calcReadsThrowsExceptionForInvalidInput"/>
 	</testsuite>
 </testsuites>

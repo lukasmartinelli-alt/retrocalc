@@ -1,13 +1,21 @@
 LIB = retrocalclib/Debug
 TEST = retrocalclibtest/Debug
 
-MY_TARGETS = $(LIB) $(TEST)
+SUBPROJECTS = $(LIB) $(TEST)
 
-.PHONY: all $(MY_TARGETS)
-	all: $(MY_TARGETS)
+all: $(SUBPROJECTS)
 
-$(MY_TARGETS):
+$(LIB):
 	@$(MAKE) -C $@;
 
 $(TEST): $(LIB)
+	@$(MAKE) -C $@;
 
+clean:
+	@$(MAKE) clean -C $(LIB);
+	@$(MAKE) clean -C $(TEST);
+
+test: $(SUBPROJECTS)
+	cd $(TEST) && ./retrocalclibtest;
+
+.PHONY: $(SUBPROJECTS)

@@ -3,8 +3,71 @@
 #include "xml_listener.h"
 #include "cute_runner.h"
 #include "digit.h"
+#include "calc.h"
 #include <vector>
 #include <stdexcept>
+
+
+void calcAddsNumbers() {
+	//Act
+	int result = calc(1, 2, '+');
+
+	//Assert
+	ASSERT_EQUAL(3, result);
+}
+
+void calcSubtractsSecondFromFirst() {
+	//Act
+	int result = calc(1, 2, '-');
+
+	//Assert
+	ASSERT_EQUAL(-1, result);
+}
+
+void calcDividesFirstWithSecond() {
+	//Act
+	int result = calc(5, 2, '/');
+
+	//Assert
+	ASSERT_EQUAL(2, result);
+}
+
+void calcMultipliesNumbers() {
+	//Act
+	int result = calc(5, 2, '*');
+
+	//Assert
+	ASSERT_EQUAL(10, result);
+}
+
+void calcThrowsInvalidArgExceptionForUnkownOperator() {
+	//Act & Assert
+	ASSERT_THROWS(calc(1, 2, '^'), std::invalid_argument);
+}
+
+void calcThrowsOverflowExceptionForDivisionByZero() {
+	//Act & Assert
+	ASSERT_THROWS(calc(1, 0, '/'), std::overflow_error);
+}
+
+void calcReadsReturnsResultForValidInput() {
+	//Arrange
+	std::istringstream in {"1 2 +"};
+
+	//Act
+	int result = calc(in);
+
+	//Assert
+	ASSERT_EQUAL(3, result);
+}
+
+void calcReadsThrowsExceptionForInvalidInput() {
+	//Arrange
+	std::istringstream in {"1 + +"};
+
+	//Act & Assert
+	ASSERT_THROWS(calc(in), std::exception);
+}
 
 void getDigitReturnsCorrectSegmentsForNumberZero() {
 	//Act
@@ -185,6 +248,14 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(getDigitBiggerThanTenThrowsInvalidArgException));
 	s.push_back(CUTE(scaleDigitHorizontally));
 	s.push_back(CUTE(scaleDigitVertically));
+	s.push_back(CUTE(calcAddsNumbers));
+	s.push_back(CUTE(calcSubtractsSecondFromFirst));
+	s.push_back(CUTE(calcDividesFirstWithSecond));
+	s.push_back(CUTE(calcMultipliesNumbers));
+	s.push_back(CUTE(calcThrowsInvalidArgExceptionForUnkownOperator));
+	s.push_back(CUTE(calcThrowsOverflowExceptionForDivisionByZero));
+	s.push_back(CUTE(calcReadsReturnsResultForValidInput));
+	s.push_back(CUTE(calcReadsThrowsExceptionForInvalidInput));
 
 	cute::xml_file_opener xmlfile(argc,argv);
 	cute::xml_listener<cute::ide_listener<> >  lis(xmlfile.out);
