@@ -1,7 +1,7 @@
 #include "calc.h"
 #include <istream>
-#include <map>
 #include <stdexcept>
+#include <iostream>
 
 int calc(int value1, int value2, char operatorSymbol) {
 	switch (operatorSymbol)
@@ -23,6 +23,7 @@ int calc(std::istream &in) {
 	in >> value1 >> operatorSymbol >> value2;
 
 	if(in.fail()) {
+		in.clear();
 		throw std::overflow_error("Input does not have correct format");
 	}
 

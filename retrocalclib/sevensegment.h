@@ -5,7 +5,7 @@
 #include <string>
 #include <iosfwd>
 
-typedef std::vector<std::string> Digit;
+using Digit = std::vector<std::string>;
 
 static const std::vector<Digit> DIGITS = {{" - ", "| |", "   ", "| |", " - "},
 										  {"   ", "  |", "   ", "  |", "   "},
@@ -48,7 +48,7 @@ void printLargeNumber(int number, std::ostream &out);
  */
 void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount);
 /**
- * Print an error symbol to output stream
+ * Print error symbols to output stream
  * @param out The output stream to print the error to
  */
 void printError(std::ostream &out);
