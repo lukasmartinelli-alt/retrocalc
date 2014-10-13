@@ -8,41 +8,7 @@
 
 Digit getDigit(unsigned int number) {
 	if(number > 9) throw std::invalid_argument("Only digits from 0 to 9 are supported");
-
-	Digit digit {};
-
-	for(auto const line: DIGITS) {
-		digit.push_back(line.at(number));
-	}
-
-	return digit;
-}
-
-Digit scaleHorizontally(Digit digit, unsigned int factor) {
-	for(auto &line: digit) {
-		const unsigned int middle = line.size() / 2;
-		const char scalingCharacter = line.at(middle);
-		line.insert(middle, factor-1, scalingCharacter);
-	}
-	return digit;
-}
-
-Digit scaleVertically(Digit digit, unsigned int factor) {
-	Digit scaledDigit{};
-
-	for(auto it=digit.begin(); it != digit.end(); ++it) {
-		const auto index = std::distance(digit.begin(), it);
-
-		scaledDigit.push_back(*it);
-		if(index % 2 == 1) {
-			scaledDigit.push_back(*it);
-		}
-	}
-	return scaledDigit;
-}
-
-Digit scaleDigit(Digit digit, unsigned int factor) {
-	return scaleVertically(scaleHorizontally(digit, factor), factor);
+	return DIGITS.at(number);
 }
 
 void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount) {
@@ -78,10 +44,5 @@ void printNumber(std::ostream &out, int number) {
 }
 
 void printError(std::ostream &out) {
-	for(auto const line: ERROR_DIGITS) {
-		for(auto const digitLine : line) {
-			out << digitLine;
-		}
-		out << "\n";
-	}
+	printDigits(out, ERROR_DIGITS, 5);
 }

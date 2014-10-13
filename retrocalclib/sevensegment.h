@@ -7,28 +7,24 @@
 
 typedef std::vector<std::string> Digit;
 
-/**
- * Each vector contains one printable line with all the numbers from 0 to 9
- * in seven segment format.
- */
-static const std::vector<std::vector<std::string>> DIGITS = {{" - ", "   ", " - ", " - ", "   ", " - ", " - ", " - ", " - ", " - "},
-															 {"| |", "  |", "  |", "  |", "| |", "|  ", "|  ", "  |", "| |", "| |"},
-															 {"   ", "   ", " - ", " - ", " - ", " - ", " - ", "   ", " - ", " - "},
-														     {"| |", "  |", "|  ", "  |", "  |", "  |", "| |", "  |", "| |", "  |"},
-															 {" - ", "   ", " - ", " - ", "   ", " - ", " - ", "   ", " ̣̣- ", "   "}};
+static const std::vector<Digit> DIGITS = {{" - ", "| |", "   ", "| |", " - "},
+										  {"   ", "  |", "   ", "  |", "   "},
+										  {" - ", "  |", " - ", "|  ", " - "},
+										  {" - ", "  |", " - ", "  |", " - "},
+										  {"   ", "| |", " - ", "  |", "   "},
+										  {" - ", "|  ", " - ", "  |", " - "},
+										  {" - ", "|  ", " - ", "| |", " - "},
+										  {" - ", "  |", "   ", "  |", "   "},
+										  {" - ", "| |", " - ", "| |", " - "},
+										  {" - ", "| |", " - ", "  |", " - "}};
 
-static const Digit MINUS_SYMBOL = {"   ",
- 	 	 	 	 	 	 	 	   "   ",
-								   " - ",
-								   "   ",
-                                   "   "};
+static const Digit MINUS_SYMBOL = {"   ", "   ", " - ", "   ", "   "};
 
-static const std::vector<std::vector<std::string>> ERROR_DIGITS = {{" - ","   ", "   ", "   ", "   "},
-																   {"|  ","   ", "   ", "   ", "   "},
-																   {" - "," - ", " - ", " - ", " - "},
-																   {"|  ","|  ", "|  ", "| |", "|  "},
-																   {" - ","   ", "   ", " - ", "   "}};
-
+static const std::vector<Digit> ERROR_DIGITS = {{" - ", "|  ", " - ", "|  ", " - "},
+												{"   ", "   ", " - ", "|  ", "   "},
+												{"   ", "   ", " - ", "|  ", "   "},
+												{"   ", "   ", " - ", "| |", " - "},
+												{"   ", "   ", " - ", "|  ", "   "}};
 
 /**
  * Extract the digit for the given number
@@ -36,24 +32,6 @@ static const std::vector<std::vector<std::string>> ERROR_DIGITS = {{" - ","   ",
  * @return The digit that corresponds to the number
  */
 Digit getDigit(unsigned int number);
-/**
- * Scale a digit horizontally and vertically by a given factor
- * @param digit to scale
- * @param factor The factor used for scaling (>1)
- */
-Digit scaleDigit(Digit digit, unsigned int factor);
-/**
- * Scale a digit horizontally by a given factor
- * @param digit The digit to scale
- * @param factor The factor used for scaling (>1)
- */
-Digit scaleHorizontally(Digit digit, unsigned int factor);
-/**
- * Scale a digit vertically by a given factor
- * @param digit The digit to scale
- * @param factor The factor used for scaling (>1)
- */
-Digit scaleVertically(Digit digit, unsigned int factor);
 /**
  * Print digits for a given number to the output stream.
  * @param out The output stream to print the digits to
