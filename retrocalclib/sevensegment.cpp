@@ -18,33 +18,6 @@ Digit getDigit(unsigned int number) {
 	return digit;
 }
 
-Digit scaleHorizontally(Digit digit, unsigned int factor) {
-	for(auto &line: digit) {
-		const unsigned int middle = line.size() / 2;
-		const char scalingCharacter = line.at(middle);
-		line.insert(middle, factor-1, scalingCharacter);
-	}
-	return digit;
-}
-
-Digit scaleVertically(Digit digit, unsigned int factor) {
-	Digit scaledDigit{};
-
-	for(auto it=digit.begin(); it != digit.end(); ++it) {
-		const auto index = std::distance(digit.begin(), it);
-
-		scaledDigit.push_back(*it);
-		if(index % 2 == 1) {
-			scaledDigit.push_back(*it);
-		}
-	}
-	return scaledDigit;
-}
-
-Digit scaleDigit(Digit digit, unsigned int factor) {
-	return scaleVertically(scaleHorizontally(digit, factor), factor);
-}
-
 void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount) {
 	Digit lines(lineCount);
 

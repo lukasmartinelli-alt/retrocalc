@@ -37,24 +37,6 @@ static const std::vector<std::vector<std::string>> ERROR_DIGITS = {{" - ","   ",
  */
 Digit getDigit(unsigned int number);
 /**
- * Scale a digit horizontally and vertically by a given factor
- * @param digit to scale
- * @param factor The factor used for scaling (>1)
- */
-Digit scaleDigit(Digit digit, unsigned int factor);
-/**
- * Scale a digit horizontally by a given factor
- * @param digit The digit to scale
- * @param factor The factor used for scaling (>1)
- */
-Digit scaleHorizontally(Digit digit, unsigned int factor);
-/**
- * Scale a digit vertically by a given factor
- * @param digit The digit to scale
- * @param factor The factor used for scaling (>1)
- */
-Digit scaleVertically(Digit digit, unsigned int factor);
-/**
  * Print digits for a given number to the output stream.
  * @param out The output stream to print the digits to
  * @param number The number to display

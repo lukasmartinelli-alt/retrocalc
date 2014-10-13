@@ -195,43 +195,6 @@ void getDigitBiggerThanTenThrowsInvalidArgException() {
 	ASSERT_THROWS(getDigit(10), std::invalid_argument);
 }
 
-void scaleDigitHorizontally() {
-	//Arrange
-	std::vector<std::string> digit = {" - ",
-									  "| |",
-									  "   ",
-									  "| |",
-									  " - "};
-	//Act
-	std::vector<std::string> scaledDigit = scaleHorizontally(digit, 2);
-
-	//Assert
-	ASSERT_EQUAL(" -- ", scaledDigit.at(0));
-	ASSERT_EQUAL("|  |", scaledDigit.at(1));
-	ASSERT_EQUAL("    ", scaledDigit.at(2));
-	ASSERT_EQUAL("|  |", scaledDigit.at(3));
-	ASSERT_EQUAL(" -- ", scaledDigit.at(4));
-}
-
-void scaleDigitVertically() {
-	//Arrange
-	std::vector<std::string> digit = {" - ",
-									  "| |",
-									  "   ",
-									  "| |",
-									  " - "};
-	//Act
-	std::vector<std::string> scaledDigit = scaleVertically(digit, 2);
-
-	//Assert
-	ASSERT_EQUAL(" - ", scaledDigit.at(0));
-	ASSERT_EQUAL("| |", scaledDigit.at(1));
-	ASSERT_EQUAL("| |", scaledDigit.at(2));
-	ASSERT_EQUAL("   ", scaledDigit.at(3));
-	ASSERT_EQUAL("| |", scaledDigit.at(4));
-	ASSERT_EQUAL("| |", scaledDigit.at(5));
-	ASSERT_EQUAL(" - ", scaledDigit.at(6));
-}
 
 void printDigitsRendersMultipleDigits() {
 	//Arrange
@@ -344,8 +307,6 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(getDigitReturnsCorrectSegmentsForNumberEight));
 	s.push_back(CUTE(getDigitReturnsCorrectSegmentsForNumberNine));
 	s.push_back(CUTE(getDigitBiggerThanTenThrowsInvalidArgException));
-	s.push_back(CUTE(scaleDigitHorizontally));
-	s.push_back(CUTE(scaleDigitVertically));
 	s.push_back(CUTE(printDigitsRendersMultipleDigits));
 	s.push_back(CUTE(printNumberRendersMultipleDigits));
 
