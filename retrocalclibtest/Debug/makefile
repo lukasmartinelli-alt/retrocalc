@@ -47,7 +47,7 @@ dependents:
 retrocalclibtest: $(OBJS) $(USER_OBJS) ../../retrocalclib/Debug/libretrocalclib.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"../../retrocalclib/Debug" -o "retrocalclibtest" $(OBJS) $(USER_OBJS) $(LIBS)
+	$(CXX) -L"../../retrocalclib/Debug" -o "retrocalclibtest" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
