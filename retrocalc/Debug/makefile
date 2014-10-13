@@ -41,13 +41,13 @@ endif
 all: retrocalc
 
 dependents:
-	-cd /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug && $(MAKE) all
+	-cd ../../retrocalclib/Debug && $(MAKE) all
 
 # Tool invocations
-retrocalc: $(OBJS) $(USER_OBJS) /home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug/libretrocalclib.a
+retrocalc: $(OBJS) $(USER_OBJS) ../../retrocalclib/Debug/libretrocalclib.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug" -o "retrocalc" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"../../retrocalclib/Debug" -o "retrocalc" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -58,6 +58,6 @@ clean:
 
 .PHONY: all clean dependents
 .SECONDARY:
-/home/morgenkaffee/Projects/retrocalc/retrocalclib/Debug/libretrocalclib.a:
+../../retrocalclib/Debug/libretrocalclib.a:
 
 -include ../makefile.targets
