@@ -175,7 +175,7 @@ void getDigitReturnsCorrectSegmentsForNumberEight() {
 	ASSERT_EQUAL("| |",digit.at(1));
 	ASSERT_EQUAL(" - ",digit.at(2));
 	ASSERT_EQUAL("| |",digit.at(3));
-	ASSERT_EQUAL(" ̣̣- ",digit.at(4));
+	ASSERT_EQUAL(" - ",digit.at(4));
 }
 
 void getDigitReturnsCorrectSegmentsForNumberNine() {
@@ -187,7 +187,7 @@ void getDigitReturnsCorrectSegmentsForNumberNine() {
 	ASSERT_EQUAL("| |",digit.at(1));
 	ASSERT_EQUAL(" - ",digit.at(2));
 	ASSERT_EQUAL("  |",digit.at(3));
-	ASSERT_EQUAL("   ",digit.at(4));
+	ASSERT_EQUAL(" - ",digit.at(4));
 }
 
 void getDigitBiggerThanTenThrowsInvalidArgException() {
@@ -238,7 +238,7 @@ void printNumberRendersMultipleDigits() {
 		"  |  || |\n"
 		" -     - \n"
 		"  |  |  |\n"
-		" -       \n"
+		" -     - \n"
 	};
 	ASSERT_EQUAL(expected, out.str());
 }

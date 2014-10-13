@@ -7,28 +7,24 @@
 
 typedef std::vector<std::string> Digit;
 
-/**
- * Each vector contains one printable line with all the numbers from 0 to 9
- * in seven segment format.
- */
-static const std::vector<std::vector<std::string>> DIGITS = {{" - ", "   ", " - ", " - ", "   ", " - ", " - ", " - ", " - ", " - "},
-															 {"| |", "  |", "  |", "  |", "| |", "|  ", "|  ", "  |", "| |", "| |"},
-															 {"   ", "   ", " - ", " - ", " - ", " - ", " - ", "   ", " - ", " - "},
-														     {"| |", "  |", "|  ", "  |", "  |", "  |", "| |", "  |", "| |", "  |"},
-															 {" - ", "   ", " - ", " - ", "   ", " - ", " - ", "   ", " ̣̣- ", "   "}};
+static const std::vector<Digit> DIGITS = {{" - ", "| |", "   ", "| |", " - "},
+										  {"   ", "  |", "   ", "  |", "   "},
+										  {" - ", "  |", " - ", "|  ", " - "},
+										  {" - ", "  |", " - ", "  |", " - "},
+										  {"   ", "| |", " - ", "  |", "   "},
+										  {" - ", "|  ", " - ", "  |", " - "},
+										  {" - ", "|  ", " - ", "| |", " - "},
+										  {" - ", "  |", "   ", "  |", "   "},
+										  {" - ", "| |", " - ", "| |", " - "},
+										  {" - ", "| |", " - ", "  |", " - "}};
 
-static const Digit MINUS_SYMBOL = {"   ",
- 	 	 	 	 	 	 	 	   "   ",
-								   " - ",
-								   "   ",
-                                   "   "};
+static const Digit MINUS_SYMBOL = {"   ", "   ", " - ", "   ", "   "};
 
-static const std::vector<std::vector<std::string>> ERROR_DIGITS = {{" - ","   ", "   ", "   ", "   "},
-																   {"|  ","   ", "   ", "   ", "   "},
-																   {" - "," - ", " - ", " - ", " - "},
-																   {"|  ","|  ", "|  ", "| |", "|  "},
-																   {" - ","   ", "   ", " - ", "   "}};
-
+static const std::vector<Digit> ERROR_DIGITS = {{" - ", "|  ", " - ", "|  ", " - "},
+												{"   ", "   ", " - ", "|  ", "   "},
+												{"   ", "   ", " - ", "|  ", "   "},
+												{"   ", "   ", " - ", "| |", " - "},
+												{"   ", "   ", " - ", "|  ", "   "}};
 
 /**
  * Extract the digit for the given number

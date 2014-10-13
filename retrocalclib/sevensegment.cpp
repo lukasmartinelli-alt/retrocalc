@@ -8,14 +8,7 @@
 
 Digit getDigit(unsigned int number) {
 	if(number > 9) throw std::invalid_argument("Only digits from 0 to 9 are supported");
-
-	Digit digit {};
-
-	for(auto const line: DIGITS) {
-		digit.push_back(line.at(number));
-	}
-
-	return digit;
+	return DIGITS.at(number);
 }
 
 void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned int lineCount) {
@@ -51,10 +44,5 @@ void printNumber(std::ostream &out, int number) {
 }
 
 void printError(std::ostream &out) {
-	for(auto const line: ERROR_DIGITS) {
-		for(auto const digitLine : line) {
-			out << digitLine;
-		}
-		out << "\n";
-	}
+	printDigits(out, ERROR_DIGITS, 5);
 }
