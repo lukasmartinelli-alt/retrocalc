@@ -30,14 +30,14 @@ void printLargeNumber(int number, std::ostream &out) {
 	std::vector<Digit> printableDigits {};
 	unsigned int positiveNumber { number < 0 ? -number : number };
 
-	do {
-		const unsigned int digit { positiveNumber % 10 };
-		printableDigits.insert(printableDigits.begin(), getDigit(digit));
-		positiveNumber /= 10;
-	} while (positiveNumber > 0);
-
 	if(number < 0) {
-		printableDigits.insert(printableDigits.begin(), MINUS_SYMBOL);
+		printableDigits.push_back(MINUS_SYMBOL);
+	}
+
+	std::string numberString{std::to_string(positiveNumber)};
+	for(const auto asciiCode : numberString) {
+		const unsigned int digit {asciiCode-48};
+		printableDigits.push_back(getDigit(digit));
 	}
 
 	printDigits(out, printableDigits, 5);

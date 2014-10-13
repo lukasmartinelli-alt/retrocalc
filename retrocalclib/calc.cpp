@@ -20,9 +20,7 @@ int calc(std::istream &in) {
 	int value1{}, value2{};
 	char operatorSymbol{};
 
-	in >> value1;
-	in >> operatorSymbol;
-	in >> value2;
+	in >> value1 >> operatorSymbol >> value2;
 
 	if(in.fail()) {
 		throw std::overflow_error("Input does not have correct format");
