@@ -37,7 +37,7 @@ Digit getDigit(unsigned int number);
  * @param out The output stream to print the digits to
  * @param number The number to display
  */
-void printNumber(std::ostream &out, int number);
+void printLargeNumber(int number, std::ostream &out);
 /**
  * Print given digits to an output stream.
  * If the number is negative it will be prefixed with a minus symbol.

@@ -12,7 +12,7 @@
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberNine"/>
 		<testcase classname="AllTests" name="getDigitBiggerThanTenThrowsInvalidArgException"/>
 		<testcase classname="AllTests" name="printDigitsRendersMultipleDigits"/>
-		<testcase classname="AllTests" name="printNumberRendersMultipleDigits"/>
+		<testcase classname="AllTests" name="printLargeNumberRendersMultipleDigits"/>
 		<testcase classname="AllTests" name="calcAddsNumbers"/>
 		<testcase classname="AllTests" name="calcSubtractsSecondFromFirst"/>
 		<testcase classname="AllTests" name="calcDividesFirstWithSecond"/>
@@ -21,8 +21,8 @@
 		<testcase classname="AllTests" name="calcThrowsOverflowExceptionForDivisionByZero"/>
 		<testcase classname="AllTests" name="calcReadsReturnsResultForValidInput"/>
 		<testcase classname="AllTests" name="calcReadsThrowsExceptionForInvalidInput"/>
-		<testcase classname="AllTests" name="printNumberCanPrintZero"/>
-		<testcase classname="AllTests" name="printNumberCanPrintNegativeNumbers"/>
+		<testcase classname="AllTests" name="printLargeNumberCanPrintZero"/>
+		<testcase classname="AllTests" name="printLargeNumberCanPrintNegativeNumbers"/>
 		<testcase classname="AllTests" name="printErrorPrintsErrorSymbol"/>
 	</testsuite>
 </testsuites>

@@ -226,12 +226,12 @@ void printDigitsRendersMultipleDigits() {
 	ASSERT_EQUAL(expected, out.str());
 }
 
-void printNumberRendersMultipleDigits() {
+void printLargeNumberRendersMultipleDigits() {
 	//Arrange
 	std::ostringstream out {};
 	unsigned int number { 319 };
 	//Act
-	printNumber(out, number);
+	printLargeNumber(number, out);
 	//Assert
 	std::string expected = {
 		" -     - \n"
@@ -243,12 +243,12 @@ void printNumberRendersMultipleDigits() {
 	ASSERT_EQUAL(expected, out.str());
 }
 
-void printNumberCanPrintZero() {
+void printLargeNumberCanPrintZero() {
 	//Arrange
 	std::ostringstream out {};
 	unsigned int number { 0 };
 	//Act
-	printNumber(out, number);
+	printLargeNumber(number, out);
 	//Assert
 	std::string expected = {
 		" - \n"
@@ -260,7 +260,7 @@ void printNumberCanPrintZero() {
 	ASSERT_EQUAL(expected, out.str());
 }
 
-void printNumberCanPrintNegativeNumbers() {
+void printLargeNumberCanPrintNegativeNumbers() {
 	//Arrange
 	std::ostringstream out {};
 	//Act
@@ -281,7 +281,7 @@ void printErrorPrintsErrorSymbol() {
 	std::ostringstream out {};
 	const int number { -1 };
 	//Act
-	printNumber(out, number);
+	printLargeNumber(number, out);
 	//Assert
 	std::string expected = {
 		"      \n"
@@ -308,7 +308,7 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(getDigitReturnsCorrectSegmentsForNumberNine));
 	s.push_back(CUTE(getDigitBiggerThanTenThrowsInvalidArgException));
 	s.push_back(CUTE(printDigitsRendersMultipleDigits));
-	s.push_back(CUTE(printNumberRendersMultipleDigits));
+	s.push_back(CUTE(printLargeNumberRendersMultipleDigits));
 
 	s.push_back(CUTE(calcAddsNumbers));
 	s.push_back(CUTE(calcSubtractsSecondFromFirst));
@@ -318,8 +318,8 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(calcThrowsOverflowExceptionForDivisionByZero));
 	s.push_back(CUTE(calcReadsReturnsResultForValidInput));
 	s.push_back(CUTE(calcReadsThrowsExceptionForInvalidInput));
-	s.push_back(CUTE(printNumberCanPrintZero));
-	s.push_back(CUTE(printNumberCanPrintNegativeNumbers));
+	s.push_back(CUTE(printLargeNumberCanPrintZero));
+	s.push_back(CUTE(printLargeNumberCanPrintNegativeNumbers));
 	s.push_back(CUTE(printErrorPrintsErrorSymbol));
 
 	cute::xml_file_opener xmlfile(argc,argv);

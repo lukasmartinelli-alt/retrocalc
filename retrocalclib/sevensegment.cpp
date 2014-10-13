@@ -26,7 +26,7 @@ void printDigits(std::ostream &out, std::vector<Digit> printableDigits, unsigned
 	}
 }
 
-void printNumber(std::ostream &out, int number) {
+void printLargeNumber(int number, std::ostream &out) {
 	std::vector<Digit> printableDigits {};
 	unsigned int positiveNumber { number < 0 ? -number : number };
 

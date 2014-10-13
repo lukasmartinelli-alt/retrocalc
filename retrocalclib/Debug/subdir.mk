@@ -5,14 +5,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../calc.cpp \
+../pocketcalculator.cpp \
 ../sevensegment.cpp 
 
 OBJS += \
 ./calc.o \
+./pocketcalculator.o \
 ./sevensegment.o 
 
 CPP_DEPS += \
 ./calc.d \
+./pocketcalculator.d \
 ./sevensegment.d 
 
 
