@@ -27,3 +27,28 @@ and a XML file.
 ```
 make test
 ```
+
+## Examples
+
+Standard arithmetic operations:
+
+```
+5 * 3
+    -
+  ||
+    -
+  |  |
+    -
+```
+
+Catching errors:
+
+```
+10 / 0
+ -
+|
+ -  -  -  -  -
+|  |  |  | ||
+ -        -
+```
+
