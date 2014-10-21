@@ -1,7 +1,6 @@
 #include "calc.h"
 #include <istream>
 #include <stdexcept>
-#include <iostream>
 
 int calc(int value1, int value2, char operatorSymbol) {
 	switch (operatorSymbol)
@@ -12,6 +11,7 @@ int calc(int value1, int value2, char operatorSymbol) {
 		  if(value2 == 0) throw std::overflow_error("Division by zero is not allowed");
 		  return value1 / value2;
 	  case '*': return value1 * value2;
+	  case '%': return value1 % value2;
 	  default: throw std::invalid_argument("Operator is not supported");
 	}
 }

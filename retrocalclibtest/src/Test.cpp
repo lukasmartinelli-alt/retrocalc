@@ -41,6 +41,14 @@ void calcMultipliesNumbers() {
 	ASSERT_EQUAL(10, result);
 }
 
+void calcAppliesModuloOperation() {
+	//Act
+	int result = calc(5, 3, '%');
+
+	//Assert
+	ASSERT_EQUAL(2, result);
+}
+
 void calcThrowsInvalidArgExceptionForUnkownOperator() {
 	//Act & Assert
 	ASSERT_THROWS(calc(1, 2, '^'), std::invalid_argument);
@@ -314,6 +322,7 @@ void runAllTests(int argc, char const *argv[]){
 	s.push_back(CUTE(calcSubtractsSecondFromFirst));
 	s.push_back(CUTE(calcDividesFirstWithSecond));
 	s.push_back(CUTE(calcMultipliesNumbers));
+	s.push_back(CUTE(calcAppliesModuloOperation));
 	s.push_back(CUTE(calcThrowsInvalidArgExceptionForUnkownOperator));
 	s.push_back(CUTE(calcThrowsOverflowExceptionForDivisionByZero));
 	s.push_back(CUTE(calcReadsReturnsResultForValidInput));

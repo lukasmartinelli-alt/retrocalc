@@ -7,25 +7,6 @@
 
 using Digit = std::vector<std::string>;
 
-static const std::vector<Digit> DIGITS = {{" - ", "| |", "   ", "| |", " - "},
-										  {"   ", "  |", "   ", "  |", "   "},
-										  {" - ", "  |", " - ", "|  ", " - "},
-										  {" - ", "  |", " - ", "  |", " - "},
-										  {"   ", "| |", " - ", "  |", "   "},
-										  {" - ", "|  ", " - ", "  |", " - "},
-										  {" - ", "|  ", " - ", "| |", " - "},
-										  {" - ", "  |", "   ", "  |", "   "},
-										  {" - ", "| |", " - ", "| |", " - "},
-										  {" - ", "| |", " - ", "  |", " - "}};
-
-static const Digit MINUS_SYMBOL = {"   ", "   ", " - ", "   ", "   "};
-
-static const std::vector<Digit> ERROR_DIGITS = {{" - ", "|  ", " - ", "|  ", " - "},
-												{"   ", "   ", " - ", "|  ", "   "},
-												{"   ", "   ", " - ", "|  ", "   "},
-												{"   ", "   ", " - ", "| |", " - "},
-												{"   ", "   ", " - ", "|  ", "   "}};
-
 /**
  * Extract the digit for the given number
  * @param number A number from 0 to 9

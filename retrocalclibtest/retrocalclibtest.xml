@@ -1,5 +1,5 @@
 <testsuites>
-	<testsuite name="AllTests" tests="24">
+	<testsuite name="AllTests" tests="25">
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberZero"/>
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberOne"/>
 		<testcase classname="AllTests" name="getDigitReturnsCorrectSegmentsForNumberTwo"/>
@@ -17,6 +17,7 @@
 		<testcase classname="AllTests" name="calcSubtractsSecondFromFirst"/>
 		<testcase classname="AllTests" name="calcDividesFirstWithSecond"/>
 		<testcase classname="AllTests" name="calcMultipliesNumbers"/>
+		<testcase classname="AllTests" name="calcAppliesModuloOperation"/>
 		<testcase classname="AllTests" name="calcThrowsInvalidArgExceptionForUnkownOperator"/>
 		<testcase classname="AllTests" name="calcThrowsOverflowExceptionForDivisionByZero"/>
 		<testcase classname="AllTests" name="calcReadsReturnsResultForValidInput"/>

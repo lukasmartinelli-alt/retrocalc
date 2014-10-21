@@ -6,6 +6,25 @@
 #include <string>
 #include <ostream>
 
+static const std::vector<Digit> DIGITS = {{" - ", "| |", "   ", "| |", " - "},
+										  {"   ", "  |", "   ", "  |", "   "},
+										  {" - ", "  |", " - ", "|  ", " - "},
+										  {" - ", "  |", " - ", "  |", " - "},
+										  {"   ", "| |", " - ", "  |", "   "},
+										  {" - ", "|  ", " - ", "  |", " - "},
+										  {" - ", "|  ", " - ", "| |", " - "},
+										  {" - ", "  |", "   ", "  |", "   "},
+										  {" - ", "| |", " - ", "| |", " - "},
+										  {" - ", "| |", " - ", "  |", " - "}};
+
+static const Digit MINUS_SYMBOL = {"   ", "   ", " - ", "   ", "   "};
+
+static const std::vector<Digit> ERROR_DIGITS = {{" - ", "|  ", " - ", "|  ", " - "},
+												{"   ", "   ", " - ", "|  ", "   "},
+												{"   ", "   ", " - ", "|  ", "   "},
+												{"   ", "   ", " - ", "| |", " - "},
+												{"   ", "   ", " - ", "|  ", "   "}};
+
 Digit getDigit(unsigned int number) {
 	if(number > 9) throw std::invalid_argument("Only digits from 0 to 9 are supported");
 	return DIGITS.at(number);
@@ -36,7 +55,7 @@ void printLargeNumber(int number, std::ostream &out) {
 
 	std::string numberString{std::to_string(positiveNumber)};
 	for(const auto asciiCode : numberString) {
-		const unsigned int digit {asciiCode-48};
+		const unsigned int digit {asciiCode - '0'};
 		printableDigits.push_back(getDigit(digit));
 	}
 
