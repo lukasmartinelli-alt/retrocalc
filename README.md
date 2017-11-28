@@ -1,4 +1,6 @@
-# Retro Calculator [![Build Status](https://travis-ci.org/lukasmartinelli/retrocalc.svg?branch=master)](https://travis-ci.org/lukasmartinelli/retrocalc)
+# Retro Calculator ![stability-deprecated](https://img.shields.io/badge/stability-deprecated-red.svg) [![Build Status](https://travis-ci.org/lukasmartinelli/retrocalc.svg?branch=master)](https://travis-ci.org/lukasmartinelli/retrocalc)
+
+> :warning: This repository is no longer maintained by Lukas Martinelli.
 
 This is a C++ console application where you can calculate simple
 expressions and the output will be displayed as 7-segment digits.
